@@ -90,13 +90,24 @@ src/
 
 ---
 
-## 🐛 Notable Bugs Fixed During Deployment
+## 🐛 Bugs Fixed During Development & Deployment
 
-While deploying to Vercel, I ran into a couple of Appwrite SDK issues worth documenting:
+A full log of bugs caught and fixed — great learning experience overall.
 
-1. **`getFilePreview is not a function`** — The service file was calling a method that didn't exist. Fixed by aligning the method name to `getFileView` as defined in the Appwrite service class.
-
-2. **`Cannot read properties of undefined (reading 'getFileView')`** — The storage instance inside the Appwrite service class was named `this.bucket` in the constructor but referenced as `this.storage` in the methods after a refactor. Fixed by making the naming consistent throughout the class.
+| # | File | Bug | Fix |
+|---|------|-----|-----|
+| 1 | `App.jsx` | `<Outlet />` was commented out — child routes never rendered | Uncommented `<Outlet />` |
+| 2 | Appwrite auth service | Wrong method name `createEmailSession` instead of `createEmailPasswordSession` | Updated to correct Appwrite SDK v13+ method |
+| 3 | `AllPost.jsx` | Typo in import path, wrong fetch method, wrong property name, API call outside `useEffect` | Fixed import, method, property, wrapped call in `useEffect` |
+| 4 | `LogoutBtn.jsx` | Importing from wrong file | Fixed import path to correct store/slice |
+| 5 | `SignUp.jsx` | `lable` typo on form field | Renamed to `label` |
+| 6 | `Button.jsx` | `px-4,` had a comma, `py2` missing dash | Fixed to `px-4` and `py-2` |
+| 7 | `PostForm.jsx` | `status` field sent as string `"true"/"false"` instead of boolean | Converted to proper boolean before submitting to Appwrite |
+| 8 | `PostForm.jsx` | Missing comma in object — silent JS syntax error | Added missing comma |
+| 9 | Redux store | Appwrite response object contained functions — Redux serializable check error | Extracted only plain data before dispatching to store |
+| 10 | `authSlice.js` | `userData` was `undefined` — wrong payload structure assumed | Fixed payload destructuring to match actual dispatched shape |
+| 11 | Post detail page | `parse(post.content)` crashing when `post.content` was `null` | Added null check before calling `parse()` |
+| 12 | Appwrite storage service | `getFilePreview` doesn't exist on free plan — also `this.bucket` vs `this.storage` naming mismatch | Renamed to `getFileView` and fixed constructor naming |
 
 ---
 
