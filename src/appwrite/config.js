@@ -99,7 +99,7 @@ export class Service {
     }
 
     getFileView(fileId) {
-        return this.bucket.getFileView(conf.appwriteBucketId, fileId).toString();
+        return this.storage.getFileView(conf.appwriteBucketId, fileId).toString();
     }
 }
 

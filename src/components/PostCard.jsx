@@ -12,7 +12,7 @@ function PostCard({ $id, title, featuredImage }) {
       >
         <div style={{ height: '180px', overflow: 'hidden' }}>
           <img
-            src={appwriteService.getFilePreview(featuredImage)}
+            src={appwriteService.getFileView(featuredImage)}
             alt={title}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />

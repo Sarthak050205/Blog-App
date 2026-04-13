@@ -132,7 +132,7 @@ export default function PostForm({ post }) {
               {post && (
                 <div style={{ marginTop: '10px', borderRadius: '8px', overflow: 'hidden', border: '0.5px solid #222' }}>
                   <img
-                    src={appwriteService.getFilePreview(post.featuredImage)}
+                    src={appwriteService.getFileView(post.featuredImage)}
                     alt={post.title}
                     style={{ width: '100%', objectFit: 'cover' }}
                   />

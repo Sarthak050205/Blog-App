@@ -37,7 +37,7 @@ export default function Post() {
 
         <div style={{ position: 'relative', width: '100%', borderRadius: '16px', overflow: 'hidden', marginBottom: '32px', border: '0.5px solid #222' }}>
           <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
+            src={appwriteService.getFileView(post.featuredImage)}
             alt={post.title}
             style={{ width: '100%', maxHeight: '460px', objectFit: 'cover', display: 'block' }}
           />
